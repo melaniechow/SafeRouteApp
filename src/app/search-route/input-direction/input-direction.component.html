@@ -1,0 +1,44 @@
+<h2> Get Directions </h2>
+
+<form #locationForm="ngForm" (ngSubmit)="onSubmit(locationForm)">
+    <div class="form-group">
+        <label for="startLoc">Starting Location</label>
+        <textarea name='startLoc' class="form-control" [(ngModel)]="startLoc" rows="1" required></textarea>
+        <br>
+        <label for="endLoc"> Destination </label>
+        <textarea name='endLoc' class="form-control" [(ngModel)]="endLoc" rows="1" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!locationForm.form.valid"> 
+        Get Routes
+    </button>
+</form>
+
+
+<!-- 
+  <div class="form-group">
+  <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+  </div>
+  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+-->
+
+<div *ngIf="destination.address">
+    <br>
+
+    <b> Start Location </b> <br>
+    Address: {{origin.address}} <br>
+    Coordinates: {{origin.lat}}, {{origin.lng}}
+
+    <br><br>
+
+    <b> End Location </b> <br>
+    Address: {{destination.address}} <br>
+    Coordinates: {{destination.lat}}, {{destination.lng}}
+    
+    <br><br>
+    
+    <app-show-map [origin]="origin" [destination]="destination"></app-show-map>
+</div>
+
+
