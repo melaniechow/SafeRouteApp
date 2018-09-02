@@ -2,9 +2,31 @@
 
 <form #locationForm="ngForm" (ngSubmit)="onSubmit(locationForm)">
     <div class="form-group">
+
+        <label for="travelType"> Travel Type </label>
+        <br>
+        
+                <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="travelType" value="WALKING" ngModel required>
+                        <label class="form-check-label"> Walking </label> 
+                        </div>
+                        <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="travelType"  value="BICYCLING" ngModel required>
+                        <label class="form-check-label"> Bicycle </label> 
+                        </div>
+                        <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="travelType" value="DRIVING" ngModel required>
+                        <label class="form-check-label"> Car </label> 
+                        </div>
+       <br>
+        
+        <br>
+        
         <label for="startLoc">Starting Location</label>
         <textarea name='startLoc' class="form-control" [(ngModel)]="startLoc" rows="1" required></textarea>
+
         <br>
+
         <label for="endLoc"> Destination </label>
         <textarea name='endLoc' class="form-control" [(ngModel)]="endLoc" rows="1" required></textarea>
     </div>
@@ -38,7 +60,7 @@
     
     <br><br>
     
-    <app-show-map [origin]="origin" [destination]="destination"></app-show-map>
+    <app-show-map [origin]="origin" [destination]="destination" [travelType]="travelType"></app-show-map>
 </div>
 
 

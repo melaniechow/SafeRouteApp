@@ -16,6 +16,10 @@ import { environment } from "../environments/environment";
     AppComponent,
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: environment.apiKey,
+      libraries: ["places"]
+    }),
     BrowserModule,
     SearchRouteModule,
     UiModule,

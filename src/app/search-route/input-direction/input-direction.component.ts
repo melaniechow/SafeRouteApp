@@ -11,6 +11,7 @@ import { MapService } from '../../map.service';
 export class InputDirectionComponent implements OnInit {
   startLoc:string
   endLoc:string;
+  travelType:string;
 
   origin={address:'',lat:null,lng:null}
   destination={address:'',lat:null,lng:null}
@@ -25,9 +26,14 @@ export class InputDirectionComponent implements OnInit {
   onSubmit(form:NgForm){
     this.resetEndLoc();
     this.resetStartLoc();
+    this.travelType=form.value['travelType'];
+    console.log(form.value);
 
     let start=form.value['startLoc'];
     let end=form.value['endLoc'];
+    
+
+
     this.service.findPlaceFromText(start).subscribe((start)=>{
       if (start['status']==200){
         let googleRes=start['response'][0];

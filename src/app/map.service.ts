@@ -8,7 +8,6 @@ import { environment } from "../environments/environment";
 export class MapService {
   start=environment.start;
 
-
   constructor(
     private http: HttpClient
   ) { }
@@ -18,4 +17,9 @@ export class MapService {
     var text=arrTxt.join("-");
     return this.http.get(this.start+`api/getPlaceFromText/${text}`);
   }
+
+  getClusterData(){
+    return this.http.get('https://data.cityofnewyork.us/resource/7x9x-zpz6.json');
+  }
+
 }
