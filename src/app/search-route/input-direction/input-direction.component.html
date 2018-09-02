@@ -1,9 +1,14 @@
-<h2> Get Directions </h2>
+<h2> <i class="fa fa-map-marker"></i> Get Directions  </h2> 
+<small style="color:gray">
+        <i> Enter An Address, A Restaurant, A Museum. All Powered by Google Maps </i>
+</small>
+<br>
+<br>
 
 <form #locationForm="ngForm" (ngSubmit)="onSubmit(locationForm)">
     <div class="form-group">
 
-        <label for="travelType"> Travel Type </label>
+        <label for="travelType"> <b> <i class="fa fa-car"></i> Travel Type </b> </label>
         <br>
         
                 <div class="form-check form-check-inline">
@@ -21,13 +26,12 @@
        <br>
         
         <br>
-        
-        <label for="startLoc">Starting Location</label>
+        <label for="startLoc"> <b> <i class="fa fa-map-pin" style="color:firebrick"></i> Origin </b> </label>
         <textarea name='startLoc' class="form-control" [(ngModel)]="startLoc" rows="1" required></textarea>
 
         <br>
 
-        <label for="endLoc"> Destination </label>
+        <label for="endLoc"> <b> <i class="fa fa-map-pin" style="color:darkgreen"></i> Destination </b> </label>
         <textarea name='endLoc' class="form-control" [(ngModel)]="endLoc" rows="1" required></textarea>
     </div>
     <button type="submit" class="btn btn-success" [disabled]="!locationForm.form.valid"> 
